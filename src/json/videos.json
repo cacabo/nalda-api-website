@@ -1,23 +1,23 @@
 [
   {
     "type": "get",
-    "route": "/videos",
-    "description": "Get all videos"
+    "route": "/api/videos",
+    "description": "Get all videos."
   },
   {
     "type": "get",
-    "route": "/videos/:id",
-    "description": "Get the video with the passed in ID"
+    "route": "/api/videos/:id",
+    "description": "Get the video with the passed in ID."
   },
   {
     "type": "delete",
-    "route": "/videos/:id",
-    "description": "Delete the video with the passed in ID"
+    "route": "/api/videos/:id",
+    "description": "Delete the video with the passed in ID."
   },
   {
     "type": "post",
-    "route": "/videos/:id/edit",
-    "description": "Edit the video with the passed in ID",
+    "route": "/api/videos/:id/edit",
+    "description": "Edit the video with the passed in ID.",
     "params": {
       "title": "String",
       "url": "String",
@@ -31,8 +31,8 @@
   },
   {
     "type": "post",
-    "route": "/videos/new",
-    "description": "Create a new video",
+    "route": "/api/videos/new",
+    "description": "Create a new video.",
     "params": {
       "title": "String",
       "url": "String",

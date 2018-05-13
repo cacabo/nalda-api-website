@@ -5,13 +5,13 @@
   </p>
   {{#if this.route.description}}
     <h5>Description</h5>
-    <p>{{this.route.description}}</p>
+    <p>{{{this.route.description}}}</p>
   {{/if}}
 
   {{#if this.route.params}}
     <h5>Params</h5>
     <div class="params mono">
-      {{{ this.route.params }}}
+      {{{this.route.params}}}
     </div>
   {{/if}}
   <a href="/" class="btn btn-primary">

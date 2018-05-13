@@ -1,0 +1,59 @@
+[
+  {
+    "type": "get",
+    "route": "/api/articles",
+    "description": "Get all articles."
+  },
+  {
+    "type": "get",
+    "route": "/api/articles/:id",
+    "description": "Get the article with the passed in ID."
+  },
+  {
+    "type": "delete",
+    "route": "/api/articles/:id",
+    "description": "Delete the article with the passed in ID."
+  },
+  {
+    "type": "post",
+    "route": "/api/articles/:id/edit",
+    "description": "Edit the article with the passed in ID. Note that valid <span class=\"mono\">componentTypes</span> are \"text\", \"image\", \"quote\", and \"header\".",
+    "params": {
+      "title": "String",
+      "subtitle": "String",
+      "image": "String",
+      "body": [
+        {
+          "componentType": "String",
+          "body": "String"
+        }
+      ],
+      "location": {
+        "lng": "Number",
+        "lat": "Number",
+        "name": "String"
+      }
+    }
+  },
+  {
+    "type": "post",
+    "route": "/api/articles/new",
+    "description": "Create a new article. Note that valid <span class=\"mono\">componentTypes</span> are \"text\", \"image\", \"quote\", and \"header\".",
+    "params": {
+      "title": "String",
+      "subtitle": "String",
+      "image": "String",
+      "body": [
+        {
+          "componentType": "String",
+          "body": "String"
+        }
+      ],
+      "location": {
+        "lng": "Number",
+        "lat": "Number",
+        "name": "String"
+      }
+    }
+  }
+]
