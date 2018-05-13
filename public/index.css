@@ -38,7 +38,8 @@ li {
 
 p,
 a,
-li {
+li,
+pre {
   font-size: 1.2rem; }
 
 @media screen and (max-width: 848px) {
@@ -50,7 +51,16 @@ li {
 .route-text {
   background: #eff0f2;
   padding: 0.5rem;
-  border-radius: 0.2rem; }
+  border-radius: 0.2rem;
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: black;
+  text-decoration: none; }
+  .route-text:focus, .route-text:active, .route-text:hover {
+    color: black;
+    text-decoration: none;
+    background: #e1e3e7; }
   .route-text .type {
     padding: 0.25rem 0.5rem;
     border-radius: 0.2rem;
@@ -64,7 +74,17 @@ li {
     .route-text .type.post {
       background: #2d8ce5; }
 
-.mono {
+.params {
+  background: #eff0f2;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  margin-bottom: 2rem; }
+  .params pre {
+    margin: 0;
+    font-size: 1.2rem; }
+
+.mono,
+pre {
   font-family: 'Roboto Mono', monospace; }
 
 .content {

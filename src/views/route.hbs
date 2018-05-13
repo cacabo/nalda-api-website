@@ -1,0 +1,20 @@
+<div class="container">
+  <p class="mono route-text">
+    <span class="type {{this.route.type}}">{{this.route.type}}</span>
+    {{this.route.route}}
+  </p>
+  {{#if this.route.description}}
+    <h5>Description</h5>
+    <p>{{this.route.description}}</p>
+  {{/if}}
+
+  {{#if this.route.params}}
+    <h5>Params</h5>
+    <div class="params mono">
+      {{{ this.route.params }}}
+    </div>
+  {{/if}}
+  <a href="/" class="btn btn-primary">
+    ← Back to home
+  </a>
+</div>

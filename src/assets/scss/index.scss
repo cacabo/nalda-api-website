@@ -14,7 +14,8 @@ li {
 
 p,
 a,
-li {
+li,
+pre {
   font-size: 1.2rem;
 }
 
@@ -30,6 +31,19 @@ li {
   background: $light-gray;
   padding: 0.5rem;
   border-radius: 0.2rem;
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: black;
+  text-decoration: none;
+
+  &:focus,
+  &:active,
+  &:hover {
+    color: black;
+    text-decoration: none;
+    background: darken($light-gray, 5%);
+  }
 
   .type {
     padding: 0.25rem 0.5rem;
@@ -52,7 +66,20 @@ li {
   }
 }
 
-.mono {
+.params {
+  background: $light-gray;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  margin-bottom: 2rem;
+
+  pre {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+}
+
+.mono,
+pre {
   font-family: 'Roboto Mono', monospace;
 }
 
