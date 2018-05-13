@@ -1,0 +1,23 @@
+/**
+ * Styling for the navbar
+ */
+.nav {
+  line-height: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $border;
+
+  .nav-content {
+    display: flex;
+
+    .logo {
+      font-size: 1.4rem;
+      margin-bottom: 0rem;
+    }
+
+    .links {
+      flex: 1;
+      text-align: right;
+    }
+  }
+}

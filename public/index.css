@@ -1,0 +1,22 @@
+/**
+ * Styling for the whole application
+ */
+/**
+ * Colors used throughout the application
+ */
+/**
+ * Styling for the navbar
+ */
+.nav {
+  line-height: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  .nav .nav-content {
+    display: flex; }
+    .nav .nav-content .logo {
+      font-size: 1.4rem;
+      margin-bottom: 0rem; }
+    .nav .nav-content .links {
+      flex: 1;
+      text-align: right; }

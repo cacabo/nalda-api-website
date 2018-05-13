@@ -1,0 +1,31 @@
+{
+  "name": "Website",
+  "version": "1.0.0",
+  "description": "Personal website for Cameron Cabo",
+  "main": "index.js",
+  "repository": "https://github.com/ccabo1/website",
+  "author": "Cameron Cabo",
+  "license": "MIT",
+  "dependencies": {
+    "babel-eslint": "^8.2.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "node-sass": "^4.9.0",
+    "node-sass-middleware": "^0.11.0",
+    "nodemon": "^1.17.4"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "build": "node index.js",
+    "test": "node index.js --env=jsdom"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-watch": "^3.1.4"
+  }
+}
