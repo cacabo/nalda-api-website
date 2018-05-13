@@ -13,11 +13,25 @@
     .logo {
       font-size: 1.4rem;
       margin-bottom: 0rem;
+      line-height: 2rem;
     }
 
     .links {
       flex: 1;
       text-align: right;
+
+      a {
+        margin-left: 1rem;
+        color: $gray;
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $dark-gray;
+          text-decoration: none;
+        }
+      }
     }
   }
 }

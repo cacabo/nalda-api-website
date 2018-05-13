@@ -16,7 +16,56 @@
     display: flex; }
     .nav .nav-content .logo {
       font-size: 1.4rem;
-      margin-bottom: 0rem; }
+      margin-bottom: 0rem;
+      line-height: 2rem; }
     .nav .nav-content .links {
       flex: 1;
       text-align: right; }
+      .nav .nav-content .links a {
+        margin-left: 1rem;
+        color: #90949b;
+        text-decoration: none; }
+        .nav .nav-content .links a:hover, .nav .nav-content .links a:active, .nav .nav-content .links a:focus {
+          color: #686c72;
+          text-decoration: none; }
+
+html,
+body,
+a,
+p,
+li {
+  font-family: 'Roboto', sans-serif; }
+
+p,
+a,
+li {
+  font-size: 1.2rem; }
+
+@media screen and (max-width: 848px) {
+  p,
+  a,
+  li {
+    font-size: 1rem; } }
+
+.route-text {
+  background: #eff0f2;
+  padding: 0.5rem;
+  border-radius: 0.2rem; }
+  .route-text .type {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-transform: uppercase; }
+    .route-text .type.get {
+      background: #61a863; }
+    .route-text .type.delete {
+      background: #e5395b; }
+    .route-text .type.post {
+      background: #2d8ce5; }
+
+.mono {
+  font-family: 'Roboto Mono', monospace; }
+
+.content {
+  padding: 1rem 0rem; }

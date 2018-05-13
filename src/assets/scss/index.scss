@@ -3,3 +3,59 @@
  */
 @import './colors.scss';
 @import './nav.scss';
+
+html,
+body,
+a,
+p,
+li {
+  font-family: 'Roboto', sans-serif;
+}
+
+p,
+a,
+li {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 848px) {
+  p,
+  a,
+  li {
+    font-size: 1rem;
+  }
+}
+
+.route-text {
+  background: $light-gray;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+
+  .type {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-transform: uppercase;
+
+    &.get {
+      background: $green;
+    }
+
+    &.delete {
+      background: $red;
+    }
+
+    &.post {
+      background: $blue;
+    }
+  }
+}
+
+.mono {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.content {
+  padding: 1rem 0rem;
+}
