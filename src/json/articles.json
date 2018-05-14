@@ -60,7 +60,11 @@
   {
     "type": "delete",
     "route": "/api/articles/:id",
-    "description": "Delete the article with the passed in ID."
+    "description": "Delete the article with the passed in ID.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String"
+    }
   },
   {
     "type": "post",
@@ -81,6 +85,11 @@
         "lat": "Number",
         "name": "String"
       }
+    },
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": "Article"
     }
   },
   {
@@ -102,6 +111,11 @@
         "lat": "Number",
         "name": "String"
       }
+    },
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": "Article"
     }
   }
 ]

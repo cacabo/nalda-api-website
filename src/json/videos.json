@@ -2,12 +2,58 @@
   {
     "type": "get",
     "route": "/api/videos",
-    "description": "Get all videos."
+    "description": "Get all videos.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": [
+        {
+          "title": "String",
+          "description": "String",
+          "url": "String",
+          "author": {
+            "type": "Schema.Types.ObjectId, ref: 'User'"
+          },
+          "createdAt": "Number",
+          "updatedAt": "Number",
+          "location": {
+            "lat": "Number",
+            "lng": "Number",
+            "name": "String"
+          }
+        }
+      ]
+    }
   },
   {
     "type": "get",
     "route": "/api/videos/:id",
-    "description": "Get the video with the passed in ID."
+    "description": "Get the video with the passed in ID.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": {
+        "title": "String",
+        "description": "String",
+        "url": "String",
+        "author": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "createdAt": "Number",
+        "updatedAt": "Number",
+        "location": {
+          "lat": "Number",
+          "lng": "Number",
+          "name": "String"
+        }
+      },
+      "author": {
+        "name": "String",
+        "_id": "String",
+        "profilePicture": "String"
+      },
+      "canModify": "Boolean"
+    }
   },
   {
     "type": "delete",

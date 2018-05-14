@@ -65,12 +65,13 @@ router.get('/', (req, res) => res.render('home', {
 }));
 
 // Get a specific route
-router.get('/routes/*', (req, res) => {
+router.get('/routes/:type/*', (req, res) => {
   // Isolate the route path
+  const type = req.params.type;
   const url = req.originalUrl;
 
   // Offset 'routes'
-  const path = url.substring(7);
+  const path = url.substring(8 + type.length);
 
   // Isolate a specific route
   let route = null;
@@ -78,7 +79,7 @@ router.get('/routes/*', (req, res) => {
   // Find which object the route is in
   if (path.startsWith('/api/videos')) {
     videos.forEach(video => {
-      if (video.route === path) {
+      if (video.route === path && video.type === type) {
         route = video;
       }
     });
@@ -96,7 +97,7 @@ router.get('/routes/*', (req, res) => {
     });
   } else if (path.startsWith('/api/articles')) {
     articles.forEach(article => {
-      if (article.route === path) {
+      if (article.route === path && article.type === type) {
         route = article;
       }
     });
@@ -114,7 +115,7 @@ router.get('/routes/*', (req, res) => {
     });
   } else {
     generalRoutes.forEach(generalRoute => {
-      if (generalRoute.route === path) {
+      if (generalRoute.route === path && generalRoute.type === type) {
         route = generalRoute;
       }
     });
