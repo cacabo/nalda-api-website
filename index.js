@@ -4,6 +4,7 @@ const path = require('path');
 const hbs = require('express-handlebars');
 const sassMiddleware = require('node-sass-middleware');
 const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 3000;
 
 // Import routes
 const api = require('./routes');
@@ -41,4 +42,4 @@ app.set('view engine', 'hbs');
 app.use('/', api);
 
 // Render the app
-app.listen(3000, () => console.log('App listening on port 3000!'));
+app.listen(PORT, () => console.log('App listening on port 3000!'));
