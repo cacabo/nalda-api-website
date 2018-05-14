@@ -48,6 +48,11 @@ pre {
   li {
     font-size: 1rem; } }
 
+code {
+  background: #eff0f2;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.25rem; }
+
 .route-text {
   background: #eff0f2;
   padding: 0.5rem;
@@ -74,16 +79,15 @@ pre {
     .route-text .type.post {
       background: #2d8ce5; }
 
-.params {
+.code-block {
   background: #eff0f2;
   padding: 0.5rem;
   border-radius: 0.2rem;
-  margin-bottom: 1rem; }
-  .params pre {
-    margin: 0;
-    font-size: 1.2rem; }
+  margin-bottom: 1rem;
+  font-size: 1.2rem; }
 
 .mono,
+code,
 pre {
   font-family: 'Roboto Mono', monospace; }
 

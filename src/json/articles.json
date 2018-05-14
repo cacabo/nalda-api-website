@@ -2,12 +2,60 @@
   {
     "type": "get",
     "route": "/api/articles",
-    "description": "Get all articles."
+    "description": "Get all articles.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": [
+        {
+          "title": "String",
+          "subtitle": "String",
+          "image": "String",
+          "body": [
+            {
+              "componentType": "String",
+              "body": "String"
+            }
+          ],
+          "location": {
+            "lng": "Number",
+            "lat": "Number",
+            "name": "String"
+          }
+        }
+      ]
+    }
   },
   {
     "type": "get",
     "route": "/api/articles/:id",
-    "description": "Get the article with the passed in ID."
+    "description": "Get the article with the passed in ID.",
+    "returns": {
+      "success": "true",
+      "data": {
+        "title": "String",
+        "subtitle": "String",
+        "image": "String",
+        "body": [
+          {
+            "componentType": "String",
+            "body": "String"
+          }
+        ],
+        "location": {
+          "lng": "Number",
+          "lat": "Number",
+          "name": "String"
+        }
+      },
+      "timestamp": "Number",
+      "author": {
+        "name": "String",
+        "profilePicture": "String",
+        "_id": "String"
+      },
+      "canModify": "Boolean"
+    }
   },
   {
     "type": "delete",
@@ -17,7 +65,7 @@
   {
     "type": "post",
     "route": "/api/articles/:id/edit",
-    "description": "Edit the article with the passed in ID. Note that valid <span class=\"mono\">componentTypes</span> are \"text\", \"image\", \"quote\", and \"header\".",
+    "description": "Edit the article with the passed in ID. Note that valid <code>componentTypes</code> are <code>\"text\"</code>, <code>\"image\"</code>, <code>\"quote\"</code>, and <code>\"header\"</code>.",
     "params": {
       "title": "String",
       "subtitle": "String",

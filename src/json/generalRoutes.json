@@ -1,0 +1,11 @@
+[
+  {
+    "type": "get",
+    "route": "/api/",
+    "description": "Test the your ability to connect to the API.",
+    "returns": {
+      "success": true,
+      "data": "API is up and running."
+    }
+  }
+]

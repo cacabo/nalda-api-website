@@ -10,8 +10,15 @@
 
   {{#if this.route.params}}
     <h5>Params</h5>
-    <div class="params mono">
+    <div class="code-block mono">
       {{{this.route.params}}}
+    </div>
+  {{/if}}
+
+  {{#if this.route.returns}}
+    <h5>Returns</h5>
+    <div class="code-block mono">
+      {{{this.route.returns}}}
     </div>
   {{/if}}
   <a href="/" class="btn btn-primary">

@@ -5,14 +5,23 @@ const router = express.Router();
 // Import data
 const rawVideos = require('./src/json/videos');
 const rawArticles = require('./src/json/articles');
-console.log(rawArticles[3].params.body);
+const rawGeneralRoutes = require('./src/json/generalRoutes');
+
+// Convert JSON into HTML for display
 const videos = rawVideos.map(video => {
   video.params = toString(video.params);
+  video.returns = toString(video.returns);
   return video;
 });
 const articles = rawArticles.map(article => {
   article.params = toString(article.params);
+  article.returns = toString(article.returns);
   return article;
+});
+const generalRoutes = rawGeneralRoutes.map(route => {
+  route.params = toString(route.params);
+  route.returns = toString(route.returns);
+  return route;
 });
 
 // Helper function
@@ -52,6 +61,7 @@ router.get('/', (req, res) => res.render('home', {
   title: 'Nalda API',
   videos,
   articles,
+  generalRoutes,
 }));
 
 // Get a specific route
@@ -103,6 +113,20 @@ router.get('/routes/*', (req, res) => {
       title: 'Nalda API | Not Found',
     });
   } else {
+    generalRoutes.forEach(generalRoute => {
+      if (generalRoute.route === path) {
+        route = generalRoute;
+      }
+    });
+    if (route) {
+      res.render('route', {
+        title: `Nalda API | ${path}`,
+        route,
+      });
+      return;
+    }
+
+    // If no matching route was found
     res.render('not-found', {
       title: 'Nalda API | Not Found',
     });
