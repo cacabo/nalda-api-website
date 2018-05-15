@@ -1,0 +1,65 @@
+[
+  {
+    "type": "get",
+    "route": "/api/users/username",
+    "description": "Get a user's username (email).",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": "String"
+    }
+  },
+  {
+    "type": "get",
+    "route": "/api/users/:id",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": {
+        "name": "String",
+        "username": "String",
+        "password": "String",
+        "userType": "String",
+        "profilePicture": "String",
+        "location": {
+          "name": "String",
+          "lat": "Number",
+          "lng": "Number"
+        },
+        "bio": "String",
+        "content": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "facebookId": "String",
+        "googleId": "String",
+        "resetPasswordToken": "String",
+        "resetPasswordExpires": "Date",
+        "accountVerified": "Boolean",
+        "verificationToken": "String"
+      },
+      "articles": "Article array",
+      "listings": "Listing array",
+      "videos": "Video array"
+    }
+  },
+  {
+    "type": "post",
+    "route": "/api/users/edit",
+    "description": "Edit a user's own account information.",
+    "params": {
+      "name": "String",
+      "bio": "String",
+      "location": {
+        "lng": "Number",
+        "lat": "Number",
+        "name": "String"
+      },
+      "profilePicture": "String",
+      "profilePictureChanged": "Boolean"
+    },
+    "returns": {
+      "success": "Boolean",
+      "error": "String"
+    }
+  }
+]

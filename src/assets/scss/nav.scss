@@ -3,11 +3,12 @@
  */
 .nav {
   box-shadow: 0rem 0.1rem 0.1rem $border;
-  background: $light-gray;
+  background: darken($blue, 20%);
   line-height: 2rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid $border;
+  color: white;
 
   .nav-content {
     display: flex;
@@ -24,13 +25,13 @@
 
       a {
         margin-left: 1rem;
-        color: $gray;
+        color: lighten($blue, 30%);
         text-decoration: none;
 
         &:hover,
         &:active,
         &:focus {
-          color: $dark-gray;
+          color: lighten($blue, 60%);
           text-decoration: none;
         }
       }

@@ -9,11 +9,12 @@
  */
 .nav {
   box-shadow: 0rem 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
-  background: #eff0f2;
+  background: #135899;
   line-height: 2rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: white; }
   .nav .nav-content {
     display: flex; }
     .nav .nav-content .logo {
@@ -25,10 +26,10 @@
       text-align: right; }
       .nav .nav-content .links a {
         margin-left: 1rem;
-        color: #90949b;
+        color: #b5d7f6;
         text-decoration: none; }
         .nav .nav-content .links a:hover, .nav .nav-content .links a:active, .nav .nav-content .links a:focus {
-          color: #686c72;
+          color: white;
           text-decoration: none; }
 
 html,
@@ -98,3 +99,10 @@ pre {
 
 .content {
   padding: 1rem 0rem; }
+
+.btn.btn-primary {
+  border: 0px solid transparent !important;
+  background: #2d8ce5;
+  font-size: 1.2rem; }
+  .btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
+    background: #4498e8; }

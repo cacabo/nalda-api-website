@@ -93,3 +93,15 @@ pre {
 .content {
   padding: 1rem 0rem;
 }
+
+.btn.btn-primary {
+  border: 0px solid transparent !important;
+  background: $blue;
+  font-size: 1.2rem;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: lighten($blue, 5%);
+  }
+}

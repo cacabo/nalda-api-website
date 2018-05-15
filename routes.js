@@ -8,6 +8,8 @@ const rawArticles = require('./src/json/articles');
 const rawGeneralRoutes = require('./src/json/generalRoutes');
 const rawAdminRoutes = require('./src/json/adminRoutes');
 const rawListings = require('./src/json/listings');
+const rawReviews = require('./src/json/reviews');
+const rawUsers = require('./src/json/users');
 
 // Helper function to format JSON for HTML
 const format = (rawData) => (
@@ -56,6 +58,8 @@ const articles = format(rawArticles);
 const listings = format(rawListings);
 const generalRoutes = format(rawGeneralRoutes);
 const adminRoutes = format(rawAdminRoutes);
+const reviews = format(rawReviews);
+const users = format(rawUsers);
 
 // Homepage
 router.get('/', (req, res) => res.render('home', {
@@ -65,6 +69,8 @@ router.get('/', (req, res) => res.render('home', {
   listings,
   generalRoutes,
   adminRoutes,
+  reviews,
+  users,
 }));
 
 // Get a specific route
@@ -110,6 +116,10 @@ router.get('/routes/:type/*', (req, res) => {
     findRoute(listings);
   } else if (path.startsWith('/api/admin')) {
     findRoute(adminRoutes);
+  } else if (path.startsWith('/api/reviews')) {
+    findRoute(reviews);
+  } else if (path.startsWith('/api/users')) {
+    findRoute(users);
   } else {
     findRoute(generalRoutes);
   }
@@ -133,10 +143,22 @@ router.get('/listings', (req, res) => res.render('listings', {
   listings,
 }));
 
+// Reviews
+router.get('/reviews ', (req, res) => res.render('reviews', {
+  title: 'Nalda API | Reviews',
+  listings,
+}));
+
 // Admins
 router.get('/admin', (req, res) => res.render('adminRoutes', {
   title: 'Nalda API | Admin',
   adminRoutes,
+}));
+
+// Users
+router.get('/users', (req, res) => res.render('users', {
+  title: 'Nalda API | Users',
+  users,
 }));
 
 // Handle 404 error

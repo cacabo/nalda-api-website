@@ -1,0 +1,30 @@
+[
+  {
+    "type": "delete",
+    "route": "/api/reviews",
+    "description": "Delete a particular review for a particular listing.",
+    "params": {
+      "reviewId": "String",
+      "lisingId": "String"
+    },
+    "returns": {
+      "success": "String",
+      "error": "Boolean"
+    }
+  },
+  {
+    "type": "post",
+    "route": "/api/reviews/new",
+    "description": "Create a review for a particular listing.",
+    "params": {
+      "listingId": "String",
+      "rating": "Number",
+      "title": "String",
+      "content": "String"
+    },
+    "returns": {
+      "success": "String",
+      "error": "Boolean"
+    }
+  }
+]
