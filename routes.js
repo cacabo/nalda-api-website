@@ -6,23 +6,17 @@ const router = express.Router();
 const rawVideos = require('./src/json/videos');
 const rawArticles = require('./src/json/articles');
 const rawGeneralRoutes = require('./src/json/generalRoutes');
+const rawAdminRoutes = require('./src/json/adminRoutes');
+const rawListings = require('./src/json/listings');
 
-// Convert JSON into HTML for display
-const videos = rawVideos.map(video => {
-  video.params = toString(video.params);
-  video.returns = toString(video.returns);
-  return video;
-});
-const articles = rawArticles.map(article => {
-  article.params = toString(article.params);
-  article.returns = toString(article.returns);
-  return article;
-});
-const generalRoutes = rawGeneralRoutes.map(route => {
-  route.params = toString(route.params);
-  route.returns = toString(route.returns);
-  return route;
-});
+// Helper function to format JSON for HTML
+const format = (rawData) => (
+  rawData.map(data => {
+    data.params = toString(data.params);
+    data.returns = toString(data.returns);
+    return data;
+  })
+);
 
 // Helper function
 function toString(thing, depth) {
@@ -56,12 +50,21 @@ function toString(thing, depth) {
   return thing;
 }
 
+// Convert JSON into HTML for display
+const videos = format(rawVideos);
+const articles = format(rawArticles);
+const listings = format(rawListings);
+const generalRoutes = format(rawGeneralRoutes);
+const adminRoutes = format(rawAdminRoutes);
+
 // Homepage
 router.get('/', (req, res) => res.render('home', {
   title: 'Nalda API',
   videos,
   articles,
+  listings,
   generalRoutes,
+  adminRoutes,
 }));
 
 // Get a specific route
@@ -76,61 +79,39 @@ router.get('/routes/:type/*', (req, res) => {
   // Isolate a specific route
   let route = null;
 
+  // Helper function to render a specific route or render not found
+  // If such a route does not exist
+  const findRoute = (model) => {
+    model.forEach(entry => {
+      if (entry.route === path && entry.type === type) {
+        route = entry;
+      }
+    });
+    if (route) {
+      res.render('route', {
+        title: `Nalda API | ${path}`,
+        route,
+      });
+      return;
+    }
+
+    // If no matching route was found
+    res.render('not-found', {
+      title: 'Nalda API | Not Found',
+    });
+  };
+
   // Find which object the route is in
   if (path.startsWith('/api/videos')) {
-    videos.forEach(video => {
-      if (video.route === path && video.type === type) {
-        route = video;
-      }
-    });
-    if (route) {
-      res.render('route', {
-        title: `Nalda API | ${path}`,
-        route,
-      });
-      return;
-    }
-
-    // If no matching route was found
-    res.render('not-found', {
-      title: 'Nalda API | Not Found',
-    });
+    findRoute(videos);
   } else if (path.startsWith('/api/articles')) {
-    articles.forEach(article => {
-      if (article.route === path && article.type === type) {
-        route = article;
-      }
-    });
-    if (route) {
-      res.render('route', {
-        title: `Nalda API | ${path}`,
-        route,
-      });
-      return;
-    }
-
-    // If no matching route was found
-    res.render('not-found', {
-      title: 'Nalda API | Not Found',
-    });
+    findRoute(articles);
+  } else if (path.startsWith('/api/listings')) {
+    findRoute(listings);
+  } else if (path.startsWith('/api/admin')) {
+    findRoute(adminRoutes);
   } else {
-    generalRoutes.forEach(generalRoute => {
-      if (generalRoute.route === path && generalRoute.type === type) {
-        route = generalRoute;
-      }
-    });
-    if (route) {
-      res.render('route', {
-        title: `Nalda API | ${path}`,
-        route,
-      });
-      return;
-    }
-
-    // If no matching route was found
-    res.render('not-found', {
-      title: 'Nalda API | Not Found',
-    });
+    findRoute(generalRoutes);
   }
 });
 
@@ -144,6 +125,18 @@ router.get('/videos', (req, res) => res.render('videos', {
 router.get('/articles', (req, res) => res.render('articles', {
   title: 'Nalda API | Articles',
   articles,
+}));
+
+// Listings
+router.get('/listings', (req, res) => res.render('listings', {
+  title: 'Nalda API | Listings',
+  listings,
+}));
+
+// Admins
+router.get('/admin', (req, res) => res.render('adminRoutes', {
+  title: 'Nalda API | Admin',
+  adminRoutes,
 }));
 
 // Handle 404 error

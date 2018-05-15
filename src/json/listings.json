@@ -1,0 +1,457 @@
+[
+  {
+    "type": "get",
+    "route": "/api/listings",
+    "description": "Get all listings.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": [
+        {
+          "title": "String",
+          "description": "String",
+          "naldaFavorite": "String",
+          "location": {
+            "name": "String",
+            "lat": "Number",
+            "lng": "Number"
+          },
+          "image": "String",
+          "imagePreview": "String",
+          "images": "String array",
+          "rating": "Number",
+          "hours": {
+            "sunday": {
+              "finish": "HH:MM",
+              "start": "HH:MM"
+            },
+            "saturday": {
+              "finish": "HH:MM",
+              "start": "HH:MM"
+            },
+            "friday": {
+              "finish": "HH:MM",
+              "start": "HH:MM"
+            },
+            "thursday": {
+              "finish": "HH:MM",
+              "start": "HH:MM"
+            },
+            "wednesday": {
+              "finish": "HH:MM",
+              "start": "HH:MM"
+            },
+            "tuesday": {
+              "finish": "HH:MM",
+              "start": "HH:MM"
+            },
+            "monday": {
+              "finish": "HH:MM",
+              "start": "HH:MM"
+            }
+          },
+          "price": "String",
+          "website": "String",
+          "author": {
+            "type": "Schema.Types.ObjectId, ref: 'User'"
+          },
+          "categories": {
+            "foodTrucks": "Boolean",
+            "lateNights": "Boolean",
+            "healthy": "Boolean",
+            "forTheSweetTooth": "Boolean",
+            "forTheStudyGrind": "Boolean",
+            "openLate": "Boolean",
+            "parentsVisiting": "Boolean",
+            "gotPlasteredLastNight": "Boolean",
+            "bars": "Boolean",
+            "byos": "Boolean",
+            "speakeasies": "Boolean",
+            "dateNight": "Boolean",
+            "formals": "Boolean",
+            "birthdays": "Boolean",
+            "treatYourself": "Boolean",
+            "adulting": "Boolean",
+            "feelingLazy": "Boolean",
+            "holeInTheWall": "Boolean",
+            "showoffToYourFriends": "Boolean",
+            "forTheGram": "Boolean"
+          },
+          "amenities": {
+            "outdoorSeating": "Boolean",
+            "formal": "Boolean",
+            "cashOnly": "Boolean",
+            "parking": "Boolean",
+            "reservation": "Boolean",
+            "wifi": "Boolean",
+            "waiter": "Boolean",
+            "wink": "Boolean"
+          },
+          "additionalAmenities": "String array",
+          "reviews": [
+            {
+              "rating": "Number",
+              "title": "String",
+              "content": "String",
+              "createdAt": "Number",
+              "authorId": "String"
+            }
+          ],
+          "createdAt": "Number",
+          "updatedAt": "Number"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "route": "/api/listings/:id",
+    "description": "Get the listing with the passed in ID.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "author": "User",
+      "reviews": "Reviews array",
+      "timestamp": "String",
+      "canModify": "Boolean",
+      "data": {
+        "title": "String",
+        "description": "String",
+        "naldaFavorite": "String",
+        "location": {
+          "name": "String",
+          "lat": "Number",
+          "lng": "Number"
+        },
+        "image": "String",
+        "imagePreview": "String",
+        "images": "String array",
+        "rating": "Number",
+        "hours": {
+          "sunday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "saturday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "friday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "thursday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "wednesday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "tuesday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "monday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          }
+        },
+        "price": "String",
+        "website": "String",
+        "author": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "categories": {
+          "foodTrucks": "Boolean",
+          "lateNights": "Boolean",
+          "healthy": "Boolean",
+          "forTheSweetTooth": "Boolean",
+          "forTheStudyGrind": "Boolean",
+          "openLate": "Boolean",
+          "parentsVisiting": "Boolean",
+          "gotPlasteredLastNight": "Boolean",
+          "bars": "Boolean",
+          "byos": "Boolean",
+          "speakeasies": "Boolean",
+          "dateNight": "Boolean",
+          "formals": "Boolean",
+          "birthdays": "Boolean",
+          "treatYourself": "Boolean",
+          "adulting": "Boolean",
+          "feelingLazy": "Boolean",
+          "holeInTheWall": "Boolean",
+          "showoffToYourFriends": "Boolean",
+          "forTheGram": "Boolean"
+        },
+        "amenities": {
+          "outdoorSeating": "Boolean",
+          "formal": "Boolean",
+          "cashOnly": "Boolean",
+          "parking": "Boolean",
+          "reservation": "Boolean",
+          "wifi": "Boolean",
+          "waiter": "Boolean",
+          "wink": "Boolean"
+        },
+        "additionalAmenities": "String array",
+        "reviews": [
+          {
+            "rating": "Number",
+            "title": "String",
+            "content": "String",
+            "createdAt": "Number",
+            "authorId": "String"
+          }
+        ],
+        "createdAt": "Number",
+        "updatedAt": "Number"
+      }
+    }
+  },
+  {
+    "type": "delete",
+    "route": "/api/listings/:id",
+    "description": "Delete the listing with the passed in ID.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String"
+    }
+  },
+  {
+    "type": "post",
+    "route": "/api/listings/:id/edit",
+    "description": "Edit the listing with the passed in ID.",
+    "params": {
+      "title": "String",
+      "image": "String",
+      "images": "String",
+      "location": "String",
+      "rating": "Number",
+      "description": "String",
+      "amenities": "String",
+      "additionalAmenities": "String",
+      "naldaFavorite": "String",
+      "categories": "String",
+      "price": "String",
+      "website": "String",
+      "hours": "String",
+      "userId": "String"
+    },
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": {
+        "title": "String",
+        "description": "String",
+        "naldaFavorite": "String",
+        "location": {
+          "name": "String",
+          "lat": "Number",
+          "lng": "Number"
+        },
+        "image": "String",
+        "imagePreview": "String",
+        "images": "String array",
+        "rating": "Number",
+        "hours": {
+          "sunday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "saturday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "friday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "thursday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "wednesday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "tuesday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "monday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          }
+        },
+        "price": "String",
+        "website": "String",
+        "author": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "categories": {
+          "foodTrucks": "Boolean",
+          "lateNights": "Boolean",
+          "healthy": "Boolean",
+          "forTheSweetTooth": "Boolean",
+          "forTheStudyGrind": "Boolean",
+          "openLate": "Boolean",
+          "parentsVisiting": "Boolean",
+          "gotPlasteredLastNight": "Boolean",
+          "bars": "Boolean",
+          "byos": "Boolean",
+          "speakeasies": "Boolean",
+          "dateNight": "Boolean",
+          "formals": "Boolean",
+          "birthdays": "Boolean",
+          "treatYourself": "Boolean",
+          "adulting": "Boolean",
+          "feelingLazy": "Boolean",
+          "holeInTheWall": "Boolean",
+          "showoffToYourFriends": "Boolean",
+          "forTheGram": "Boolean"
+        },
+        "amenities": {
+          "outdoorSeating": "Boolean",
+          "formal": "Boolean",
+          "cashOnly": "Boolean",
+          "parking": "Boolean",
+          "reservation": "Boolean",
+          "wifi": "Boolean",
+          "waiter": "Boolean",
+          "wink": "Boolean"
+        },
+        "additionalAmenities": "String array",
+        "reviews": [
+          {
+            "rating": "Number",
+            "title": "String",
+            "content": "String",
+            "createdAt": "Number",
+            "authorId": "String"
+          }
+        ],
+        "createdAt": "Number",
+        "updatedAt": "Number"
+      }
+    }
+  },
+  {
+    "type": "post",
+    "route": "/api/listings/new",
+    "description": "Create a new listing.",
+    "params": {
+      "title": "String",
+      "image": "String",
+      "images": "String",
+      "location": "String",
+      "rating": "Number",
+      "description": "String",
+      "amenities": "String",
+      "additionalAmenities": "String",
+      "naldaFavorite": "String",
+      "categories": "String",
+      "price": "String",
+      "website": "String",
+      "hours": "String",
+      "userId": "String"
+    },
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": {
+        "title": "String",
+        "description": "String",
+        "naldaFavorite": "String",
+        "location": {
+          "name": "String",
+          "lat": "Number",
+          "lng": "Number"
+        },
+        "image": "String",
+        "imagePreview": "String",
+        "images": "String array",
+        "rating": "Number",
+        "hours": {
+          "sunday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "saturday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "friday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "thursday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "wednesday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "tuesday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          },
+          "monday": {
+            "finish": "HH:MM",
+            "start": "HH:MM"
+          }
+        },
+        "price": "String",
+        "website": "String",
+        "author": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "categories": {
+          "foodTrucks": "Boolean",
+          "lateNights": "Boolean",
+          "healthy": "Boolean",
+          "forTheSweetTooth": "Boolean",
+          "forTheStudyGrind": "Boolean",
+          "openLate": "Boolean",
+          "parentsVisiting": "Boolean",
+          "gotPlasteredLastNight": "Boolean",
+          "bars": "Boolean",
+          "byos": "Boolean",
+          "speakeasies": "Boolean",
+          "dateNight": "Boolean",
+          "formals": "Boolean",
+          "birthdays": "Boolean",
+          "treatYourself": "Boolean",
+          "adulting": "Boolean",
+          "feelingLazy": "Boolean",
+          "holeInTheWall": "Boolean",
+          "showoffToYourFriends": "Boolean",
+          "forTheGram": "Boolean"
+        },
+        "amenities": {
+          "outdoorSeating": "Boolean",
+          "formal": "Boolean",
+          "cashOnly": "Boolean",
+          "parking": "Boolean",
+          "reservation": "Boolean",
+          "wifi": "Boolean",
+          "waiter": "Boolean",
+          "wink": "Boolean"
+        },
+        "additionalAmenities": "String array",
+        "reviews": [
+          {
+            "rating": "Number",
+            "title": "String",
+            "content": "String",
+            "createdAt": "Number",
+            "authorId": "String"
+          }
+        ],
+        "createdAt": "Number",
+        "updatedAt": "Number"
+      }
+    }
+  }
+]

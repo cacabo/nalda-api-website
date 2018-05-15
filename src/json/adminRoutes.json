@@ -1,0 +1,75 @@
+[
+  {
+    "type": "get",
+    "route": "/api/admin/articles",
+    "description": "Get all articles.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "articles": "Article array"
+    }
+  },
+  {
+    "type": "get",
+    "route": "/api/admin/listings",
+    "description": "Get all listings.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "listings": "Listing array"
+    }
+  },
+  {
+    "type": "get",
+    "route": "/api/admin/videos",
+    "description": "Get all videos.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "articles": "Video array"
+    }
+  },
+  {
+    "type": "get",
+    "route": "/api/admin/admins",
+    "description": "Get all admins.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "articles": "User array"
+    }
+  },
+  {
+    "type": "get",
+    "route": "/api/admin/curators",
+    "description": "Get all curators.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "articles": "User array"
+    }
+  },
+  {
+    "type": "get",
+    "route": "/api/admin/users",
+    "description": "Get all general users.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "articles": "User array"
+    }
+  },
+  {
+    "type": "get",
+    "route": "/api/admin",
+    "description": "Get homepage data for the admin panel.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": {
+        "banner": "Banner",
+        "components": "Component array"
+      }
+    }
+  }
+]

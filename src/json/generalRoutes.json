@@ -7,5 +7,117 @@
       "success": true,
       "data": "\"API is up and running.\""
     }
+  },
+  {
+    "type": "get",
+    "route": "/api/home",
+    "description": "Get all data displayed on the homepage.<br><br>The <code>banner</code> is the carousel displayed at the top of the page. The <code>contentType</code> is either <code>\"listing\"</code>, <code>\"article\"</code>, or <code>\"video\"</code>. The <code>\"contentId\"</code> is the identifier of the content in its respective model (<code>Article</code>, <code>Listing</code>, or <code>Video</code>).<br><br>For the <code>components</code>, things are slightly different. <code>contentType</code> is either <code>\"Listings\"</code>, <code>\"Articles\"</code>, or <code>\"Videos\"</code> as each <code>component</code> refers to a group of content all of the same type. What appears in the <code>content</code> section of the response depends on the <code>contentType</code>.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "banner": [
+        {
+          "contentType": "String",
+          "contentId": "String",
+          "contentImage": "String",
+          "_id": "String"
+        }
+      ],
+      "components": [
+        {
+          "title": "String",
+          "subtitle": "String",
+          "contentType": "Listings",
+          "_id": "5ad7e919ad3b780014bf5db3",
+          "content": [
+            {
+              "title": "String",
+              "contentId": "String",
+              "...": "..."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "route": "/api/sync",
+    "description": "Check if the user is still logged in on the backend. The <code>user</code> information is only sent if the user logged in vid OAuth (that is, with their Facebook or Google account). The <code>oAuthLogin</code> is true if the user leveraged OAuth to login.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "oAuthLogin": "Boolean",
+      "user": {
+        "name": "String",
+        "profilePicture": "String",
+        "userType": "String",
+        "userId": "String",
+        "location": "String"
+      }
+    }
+  },
+  {
+    "type": "get",
+    "route": "/api/account",
+    "description": "Get the current user's account information.",
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": {
+        "name": "String",
+        "username": "String",
+        "password": "String",
+        "userType": "String",
+        "profilePicture": "String",
+        "location": {
+          "name": "String",
+          "lat": "Number",
+          "lng": "Number"
+        },
+        "bio": "String",
+        "content": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "facebookId": "String",
+        "googleId": "String",
+        "resetPasswordToken": "String",
+        "resetPasswordExpires": "Date",
+        "accountVerified": "Boolean",
+        "verificationToken": "String"
+      }
+    }
+  },
+  {
+    "type": "post",
+    "route": "/api/contact",
+    "description": "Send an email to the Nalda team.",
+    "params": {
+      "email": "String",
+      "name": "String",
+      "message": "String"
+    },
+    "returns": {
+      "success": "Boolean",
+      "error": "String"
+    }
+  },
+  {
+    "type": "post",
+    "route": "/api/search",
+    "description": "Search for content across listings, videos, articles, and curators (a type of user).",
+    "params": {
+      "search": "String"
+    },
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": {
+        "articles": "Article array",
+        "listings": "Listing array",
+        "videos": "Video array",
+        "curators": "User array"
+      }
+    }
   }
 ]
