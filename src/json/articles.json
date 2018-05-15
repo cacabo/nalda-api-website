@@ -11,12 +11,18 @@
           "title": "String",
           "subtitle": "String",
           "image": "String",
+          "imagePreview": "String",
           "body": [
             {
               "componentType": "String",
               "body": "String"
             }
           ],
+          "author": {
+            "type": "Schema.Types.ObjectId, ref: 'User'"
+          },
+          "createdAt": "Number",
+          "updatedAt": "Number",
           "location": {
             "lng": "Number",
             "lat": "Number",
@@ -36,12 +42,18 @@
         "title": "String",
         "subtitle": "String",
         "image": "String",
+        "imagePreview": "String",
         "body": [
           {
             "componentType": "String",
             "body": "String"
           }
         ],
+        "author": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "createdAt": "Number",
+        "updatedAt": "Number",
         "location": {
           "lng": "Number",
           "lat": "Number",
@@ -74,6 +86,7 @@
       "title": "String",
       "subtitle": "String",
       "image": "String",
+      "imagePreview": "String",
       "body": [
         {
           "componentType": "String",
@@ -89,7 +102,28 @@
     "returns": {
       "success": "Boolean",
       "error": "String",
-      "data": "Article"
+      "data": {
+        "title": "String",
+        "subtitle": "String",
+        "image": "String",
+        "imagePreview": "String",
+        "body": [
+          {
+            "componentType": "String",
+            "body": "String"
+          }
+        ],
+        "author": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "createdAt": "Number",
+        "updatedAt": "Number",
+        "location": {
+          "lng": "Number",
+          "lat": "Number",
+          "name": "String"
+        }
+      }
     }
   },
   {
@@ -100,12 +134,18 @@
       "title": "String",
       "subtitle": "String",
       "image": "String",
+      "imagePreview": "String",
       "body": [
         {
           "componentType": "String",
           "body": "String"
         }
       ],
+      "author": {
+        "type": "Schema.Types.ObjectId, ref: 'User'"
+      },
+      "createdAt": "Number",
+      "updatedAt": "Number",
       "location": {
         "lng": "Number",
         "lat": "Number",
@@ -115,7 +155,28 @@
     "returns": {
       "success": "Boolean",
       "error": "String",
-      "data": "Article"
+      "data": {
+        "title": "String",
+        "subtitle": "String",
+        "image": "String",
+        "imagePreview": "String",
+        "body": [
+          {
+            "componentType": "String",
+            "body": "String"
+          }
+        ],
+        "author": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "createdAt": "Number",
+        "updatedAt": "Number",
+        "location": {
+          "lng": "Number",
+          "lat": "Number",
+          "name": "String"
+        }
+      }
     }
   }
 ]

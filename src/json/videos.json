@@ -73,6 +73,25 @@
         "lat": "Number",
         "name": "String"
       }
+    },
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": {
+        "title": "String",
+        "description": "String",
+        "url": "String",
+        "author": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "createdAt": "Number",
+        "updatedAt": "Number",
+        "location": {
+          "lat": "Number",
+          "lng": "Number",
+          "name": "String"
+        }
+      }
     }
   },
   {
@@ -87,6 +106,25 @@
         "lng": "Number",
         "lat": "Number",
         "name": "String"
+      }
+    },
+    "returns": {
+      "success": "Boolean",
+      "error": "String",
+      "data": {
+        "title": "String",
+        "description": "String",
+        "url": "String",
+        "author": {
+          "type": "Schema.Types.ObjectId, ref: 'User'"
+        },
+        "createdAt": "Number",
+        "updatedAt": "Number",
+        "location": {
+          "lat": "Number",
+          "lng": "Number",
+          "name": "String"
+        }
       }
     }
   }
